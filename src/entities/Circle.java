@@ -4,16 +4,17 @@ package entities;
 import entities.enums.Color;
 
 
-public class Circle extends Shape{
+public class Circle extends AbstractShape{
     private Double radius;
-    
-    public Circle(){
-        super();
-    }
-
+  
     public Circle(Double radius, Color color) {
         super(color);
         this.radius = radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle" + "radius= " + radius;
     }
 
     public Double getRadius() {
@@ -23,7 +24,7 @@ public class Circle extends Shape{
     public void setRadius(Double radius) {
         this.radius = radius;
     }
-    
+ 
 
     @Override
     public double area() {

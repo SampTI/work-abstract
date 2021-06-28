@@ -1,5 +1,6 @@
 package programa;
 
+import entities.AbstractShape;
 import entities.Circle;
 import entities.Rectangle;
 import entities.Shape;
@@ -19,13 +20,13 @@ public class program {
         
         System.out.print("Enter the number of shapes: ");
         int n = tc.nextInt();
-        List<Shape> list = new ArrayList<>();
+        List<AbstractShape> list = new ArrayList<>();
         for(int i=1; i<=n; i++){
             System.out.println("Shape #"+i+" data:");
-            System.out.print("Rectangle or Circle (r/c)? ");
-            char ch = tc.next().charAt(0);
+            System.out.print("Rectangle or Circle (R/C)? ");
+            char ch = tc.next().toUpperCase().charAt(0);
             System.out.print("Color (BLACK/BLUE/RED): ");
-            Color color = Color.valueOf(tc.next());
+            Color color = Color.valueOf(tc.next().toUpperCase());
             
             if(ch=='r'){
                 System.out.print("Width: ");
@@ -41,8 +42,9 @@ public class program {
         }
         System.out.println("");
         System.out.println("SHAPE AREAS:");
-        for(Shape shape: list){
-            System.out.println(String.format("%.2f", shape.area()));
+        for(AbstractShape shape: list){
+            System.out.println(String.format(shape.toString()+" Color: "+shape.getColor()+" Area: %.2f", shape.area()));
+            
         }
     
         

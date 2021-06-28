@@ -4,14 +4,11 @@ package entities;
 import entities.enums.Color;
 
 
-public class Rectangle extends Shape{
+public class Rectangle extends AbstractShape{
     private Double width;
     private Double height;
     
-    public Rectangle(){
-        super();
-    }
-
+   
     public Rectangle(Double width, Double height, Color color) {
         super(color);
         this.width = width;
@@ -35,11 +32,15 @@ public class Rectangle extends Shape{
     public void setHeight(Double height) {
         this.height = height;
     }
-    
-    
+ 
     @Override
     public double area() {
         return width*height;
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle " + "width= " + width + ", height= " + height;
     }
     
 }
